@@ -30,4 +30,8 @@ public class AuthorService {
         return authorRepo.save(existingAuthor);
     }
 
+    public void deleteAuthor(Long id){
+          authorRepo.deleteById(id);
+    }
+
 }
