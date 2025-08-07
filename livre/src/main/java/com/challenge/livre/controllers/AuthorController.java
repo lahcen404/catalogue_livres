@@ -2,9 +2,7 @@ package com.challenge.livre.controllers;
 
 import com.challenge.livre.models.Author;
 import com.challenge.livre.services.AuthorService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/authors")
@@ -19,5 +17,10 @@ public class AuthorController {
     @PostMapping()
     public Author createAuthor(Author author){
         return authorService.createAuthor(author);
+    }
+
+    @PutMapping("update/{id}")
+    public Author updateAuthor(@PathVariable Long id , @RequestBody Author author){
+        return authorService.updateAuthor(id,author);
     }
 }
