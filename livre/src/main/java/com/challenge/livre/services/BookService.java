@@ -29,4 +29,16 @@ public class BookService {
         return bookRepo.save(book);
     }
 
+    public Book updateBook(Long id , Book book){
+
+        Book existingBook = bookRepo.findById(id)
+                .orElseThrow(()-> new RuntimeException("book not found"));
+
+        existingBook.setTitle(book.getTitle());
+        existingBook.setIsbn(book.getIsbn());
+        existingBook.setAuthor(book.getAuthor());
+
+        return bookRepo.save(existingBook);
+    }
+
 }
