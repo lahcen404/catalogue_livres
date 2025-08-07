@@ -24,6 +24,8 @@ public class BookService {
         Author author = authorRepo.findById(authorId)
                 .orElseThrow(()-> new RuntimeException("author not found"));
 
+        book.setAuthor(author);
+
         return bookRepo.save(book);
     }
 
